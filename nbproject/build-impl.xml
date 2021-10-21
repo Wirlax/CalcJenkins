@@ -1133,8 +1133,20 @@ is divided into following sections:
         <mkdir dir="${dist.jar.dir}"/>
     </target>
     <target name="-pre-jar">
+        <mkdir dir="${build.test.classes.dir}"/>
+        <javac classpath="${javac.test.classpath}" destdir="${build.test.classes.dir}" srcdir="${test.src.dir}"/> 
+        <path id="classpath.test">
+            <pathelement location="/Users/rthiebaut/Documents/Intégration Continue/junit-4.13.2.jar" /> 
+            <pathelement location="${build.test.classes.dir}" />
+            <pathelement location="${build.classes.dir}" /> 
+        </path>
+        <junit haltonerror="true" haltonfailure="true"> 
+            <classpath refid="classpath.test" />
+            <formatter type="brief" usefile="false" /> 
+            <test name="CalcJenkins.CalcJenkinsIT" /> 
+        </junit>
         <!-- Empty placeholder for easier customization. -->
-        <!-- You can override this target in the ../build.xml file. -->
+        <!-- You can override this target in the ../build.xml file. --> 
     </target>
     <target depends="init,compile" name="-check-module-main-class">
         <pathconvert property="main.class.file">
