@@ -1136,7 +1136,8 @@ is divided into following sections:
         <mkdir dir="${build.test.classes.dir}"/>
         <javac classpath="${javac.test.classpath}" destdir="${build.test.classes.dir}" srcdir="${test.src.dir}"/> 
         <path id="classpath.test">
-            <pathelement location="/Users/rthiebaut/Documents/Intégration Continue/junit-4.13.2.jar" /> 
+            <pathelement location="/Users/rthiebaut/Documents/Intégration Continue/junit-4.13.2.jar"/> 
+            <pathelement location="/Users/rthiebaut/Documents/Intégration Continue/hamcrest-all.jar"/> 
             <pathelement location="${build.test.classes.dir}" />
             <pathelement location="${build.classes.dir}" /> 
         </path>
